@@ -1,0 +1,31 @@
+name: TVReporterSRT
+
+options:
+  bundleIdPrefix: br.tvreporter
+  deploymentTarget:
+    iOS: "17.0"
+
+packages:
+  HaishinKit:
+    url: https://github.com/HaishinKit/HaishinKit.swift.git
+    from: 2.2.0
+
+targets:
+  TVReporterSRT:
+    type: application
+    platform: iOS
+    sources:
+      - TVReporterSRT
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: br.tvreporter.srt
+        INFOPLIST_KEY_NSCameraUsageDescription: "A câmera é usada para transmitir vídeo ao vivo."
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: "O microfone é usado para transmitir áudio ao vivo."
+        INFOPLIST_KEY_UIBackgroundModes: "audio"
+        TARGETED_DEVICE_FAMILY: "1"
+        SWIFT_VERSION: "6.0"
+    dependencies:
+      - package: HaishinKit
+        product: HaishinKit
+      - package: HaishinKit
+        product: SRTHaishinKit
