@@ -97,7 +97,13 @@ final class BroadcastViewModel: ObservableObject {
             do {
                 // V1: conexão direta SRT Caller -> vMix Listener.
                 // Os parâmetros de latência/streamid/passphrase são enviados pela URL.
-                try await connection.connect(settings.srtURL)
+                guard let srtURL = URL(string: settings.srtURL) else {
+                    throw NSError(domain: "TVReporterSRT", code: 3, userInfo: [
+                        NSLocalizedDescriptionKey: "A URL SRT configurada é inválida."
+                    ])
+                }
+
+                try await connection.connect(srtURL)
                 await stream.publish()
                 state = .live
             } catch {
