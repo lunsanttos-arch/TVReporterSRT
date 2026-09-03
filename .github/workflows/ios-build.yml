@@ -38,6 +38,8 @@ jobs:
             -scheme TVReporterSRT \
             -sdk iphonesimulator \
             -configuration Debug \
+            EXCLUDED_ARCHS=x86_64 \
+            ONLY_ACTIVE_ARCH=YES \
             CODE_SIGNING_ALLOWED=NO \
             build | tee xcodebuild.log
 
