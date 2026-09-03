@@ -19,6 +19,7 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: br.tvreporter.srt
+        GENERATE_INFOPLIST_FILE: "YES"
         INFOPLIST_KEY_NSCameraUsageDescription: "A câmera é usada para transmitir vídeo ao vivo."
         INFOPLIST_KEY_NSMicrophoneUsageDescription: "O microfone é usado para transmitir áudio ao vivo."
         INFOPLIST_KEY_UIBackgroundModes: "audio"
